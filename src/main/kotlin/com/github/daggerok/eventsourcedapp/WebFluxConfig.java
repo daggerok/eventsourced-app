@@ -34,13 +34,6 @@ public class WebFluxConfig {
 
   @PostConstruct
   public void init() {
-/*
-    eventStore.deleteAll()
-              .thenMany(Flux.fromStream(Stream.of("one", "two", "three"))
-                            .map(s -> new DomainEvent(null, Instant.now(), s))
-                            .flatMap(eventStore::save))
-              .subscribe(domainEvent -> System.out.println("domainEvent = " + domainEvent));
-*/
     AtomicLong counter = new AtomicLong(1);
     UUID aggregateId = UUID.randomUUID();
     repository.deleteAll()
