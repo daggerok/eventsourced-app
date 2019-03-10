@@ -2,6 +2,8 @@ package com.github.daggerok.eventsourcedapp
 
 import org.springframework.data.annotation.Id
 import org.springframework.data.annotation.Version
+import org.springframework.data.mongodb.core.index.CompoundIndex
+import org.springframework.data.mongodb.core.index.CompoundIndexes
 import org.springframework.data.mongodb.core.mapping.Document
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository
 import reactor.core.publisher.Mono
@@ -16,6 +18,7 @@ data class DomainEvent(
 )
 
 @Document
+@CompoundIndex(name = "aggId_revNum", def = "{'aggregateId' : 1, 'revisionNumber' : 1}")
 data class Aggregate(
     @Id val id: String? = null,
     @Version val revisionNumber: Int? = 0,
