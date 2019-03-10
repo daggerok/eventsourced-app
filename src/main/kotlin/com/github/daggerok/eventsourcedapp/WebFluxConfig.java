@@ -39,7 +39,7 @@ public class WebFluxConfig {
     repository.deleteAll()
               .then(eventStore.deleteAll())
               .thenMany(Flux.fromStream(Stream.of("one", "two", "three"))
-                            .map(s -> new DomainEvent(null, Instant.now(), s))
+                            .map(s -> new DomainEvent(null, Instant.now(), singletonMap("payload", s)))
                             .flatMap(eventStore::save))
               //// comment next line out to take a chance see versioning of the aggregate:
               //.then(eventStore.count())

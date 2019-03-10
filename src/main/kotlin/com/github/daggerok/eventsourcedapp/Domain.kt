@@ -10,7 +10,7 @@ import reactor.core.publisher.Mono
 import java.time.Instant
 import java.util.*
 
-@Document
+@Document()
 data class DomainEvent(
     @Id val id: String? = null,
     val createdAt: Instant? = Instant.now(),
@@ -18,7 +18,7 @@ data class DomainEvent(
 )
 
 @Document
-@CompoundIndex(name = "aggId_revNum", def = "{'aggregateId' : 1, 'revisionNumber' : 1}")
+@CompoundIndex(name = "aggId_revNum", def = "{ 'aggregateId': 1, 'revisionNumber': 1 }")
 data class Aggregate(
     @Id val id: String? = null,
     @Version val revisionNumber: Int? = 0,
