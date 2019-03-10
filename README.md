@@ -15,6 +15,8 @@ TODO:
 - after, introduce messaging layer and subscribe all queries as projections
 
 ```bash
-./mvnw
-http :8080/watever
+./mvnw clean spring-boot:run
+http :8080/
+http :8080/events
+http :8080/aggregates
 ```
