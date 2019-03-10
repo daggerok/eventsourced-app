@@ -3,8 +3,8 @@ Play with Event Sourcing and CQRS (in progress)
 
 TODO:
 
-- implement DomainEvent entity / store
-- implement Aggregate entity / store
+- ~~implement DomainEvent entity / store~~
+- ~~implement Aggregate entity / store~~
 - implement http command side REST API
   - create new aggregate, or:
   - find aggregate by id via recreating it from existing events
